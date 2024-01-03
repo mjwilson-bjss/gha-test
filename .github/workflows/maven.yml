@@ -22,13 +22,13 @@ jobs:
 
     - name: Build with Maven
       id: maven
-      run: mvn -B package --file pom.xml -DbuildName=gha-${{GITHUB_SHA}}
+      run: mvn -B package --file pom.xml -DbuildName=gha-${GITHUB_SHA}
   
     - name: Execute Java
       id: exec
       run: |
         echo "Java output:" >> $GITHUB_STEP_SUMMARY
-        (echo '```'; java -classpath target/gha-${{GITHUB_SHA}}.jar com.bjss.mjwilson.gha.Gha; echo '```') >> $GITHUB_STEP_SUMMARY
+        (echo '```'; java -classpath target/gha-${GITHUB_SHA}.jar com.bjss.mjwilson.gha.Gha; echo '```') >> $GITHUB_STEP_SUMMARY
 
     - name: Upload Test Results
       id: upload-tests
@@ -51,7 +51,7 @@ jobs:
       uses: actions/upload-artifact@v4.0.0
       with:
         name: jar
-        path: target/gha-${{GITHUB_SHA}}.jar
+        path: target/gha-${GITHUB_SHA}.jar
         retention-days: 1
  
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
