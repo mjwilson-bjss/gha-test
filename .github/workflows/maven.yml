@@ -83,6 +83,15 @@ jobs:
     container:
       image: amazoncorretto:17-alpine-jdk
     steps:
+      - name: Download JAR
+        id: download-artifact
+        uses: actions/download-artifact@v4.1.0
+        with:
+          name: jar
+          path: target
+
       - name: Check Java version
         run: java --version
-
+        
+      - name: inspect workspace
+        run: ls -lR
