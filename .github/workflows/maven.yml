@@ -32,7 +32,9 @@ jobs:
 
   
     - name: Execute Java
-      run: java -classpath target/gha-test-0.0.1.jar com.bjss.mjwilson.gha.Gha
+      run: |
+        echo "Java output:" >> $GITHUB_STEP_SUMMARY
+        java -classpath target/gha-test-0.0.1.jar com.bjss.mjwilson.gha.Gha >> $GITHUB_STEP_SUMMARY
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.0.0
