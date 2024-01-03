@@ -38,12 +38,20 @@ jobs:
         echo "Java output:" >> $GITHUB_STEP_SUMMARY
         (echo '```'; java -classpath target/gha-test-0.0.1.jar com.bjss.mjwilson.gha.Gha; echo '```') >> $GITHUB_STEP_SUMMARY
 
-    - name: Upload Test Reports
+    - name: Upload Test Results
       id: upload-tests
       uses: actions/upload-artifact@v4.0.0
       with:
         name: surefire
         path: target/surefire-reports
+        retention-days: 1
+        
+    - name: Upload Coverage Reports
+      id: upload-coverage
+      uses: actions/upload-artifact@v4.0.0
+      with:
+        name: coverage
+        path: target/site/jacoco
         retention-days: 1
         
     - name: Upload Build Artifact
