@@ -30,7 +30,7 @@ jobs:
 
     - name: Build with Maven
       id: maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file pom.xml -DbuildName=gha-${GITHUB_SHA}
   
     - name: Execute Java
       id: exec
@@ -59,7 +59,7 @@ jobs:
       uses: actions/upload-artifact@v4.0.0
       with:
         name: jar
-        path: target/gha.jar
+        path: target/gha-${GITHUB_SHA}.jar
         retention-days: 1
  
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
