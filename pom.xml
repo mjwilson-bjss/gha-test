@@ -9,6 +9,7 @@
     <name>GHA test</name>
 
     <properties>
+        <buildName>gha</buildName>
         <revision>0.0.1</revision>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -60,8 +61,9 @@
         </dependency>
     </dependencies>
 
+
     <build>
-        <finalName>gha</finalName>
+        <finalName>${buildName}</finalName>
 
         <plugins>
             <plugin>
