@@ -90,8 +90,11 @@ jobs:
           name: jar
           path: target
 
-      - name: Check Java version
-        run: java --version
+      - name: Execute Java in container
+        id: exec-container
+        run: |
+          echo "Java output:" >> $GITHUB_STEP_SUMMARY
+          (echo '```'; java -classpath target/gha-${GITHUB_SHA}.jar com.bjss.mjwilson.gha.Gha; echo '```') >> $GITHUB_STEP_SUMMARY
         
       - name: inspect workspace
         run: ls -lR
