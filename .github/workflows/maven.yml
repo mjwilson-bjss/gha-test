@@ -81,7 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     container:
-      image: amazon-corretto:17-alpine-jdk
+      image: node:18
     steps:
       - name: Check Java version
         run: java --version
