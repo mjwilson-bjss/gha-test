@@ -2,7 +2,7 @@ name: Execute Java
 
 on:
   workflow_run:
-    workflows: ["maven"]
+    workflows: ["Java CI with Maven"]
 
 jobs:
   exec:
