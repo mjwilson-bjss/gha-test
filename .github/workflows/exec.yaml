@@ -1,0 +1,16 @@
+name: Execute Java
+
+exec:
+  runs-on: ubuntu-latest
+  needs: maven
+
+  steps:
+  - name: Download jar
+    uses: actions/download-artifact@v4.0.0
+    with:
+      name: jar
+        
+  - name: Execute Java
+    run: |
+      echo "Java output:" >> $GITHUB_STEP_SUMMARY
+      java -classpath target/gha-test-0.0.1.jar com.bjss.mjwilson.gha.Gha >> $GITHUB_STEP_SUMMARY
