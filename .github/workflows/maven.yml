@@ -59,7 +59,7 @@ jobs:
       uses: actions/upload-artifact@v4.0.0
       with:
         name: jar
-        path: target/gha-test-0.0.1.jar
+        path: target/gha.jar
         retention-days: 1
  
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
