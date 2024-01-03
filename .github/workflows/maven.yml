@@ -36,7 +36,7 @@ jobs:
       id: exec
       run: |
         echo "Java output:" >> $GITHUB_STEP_SUMMARY
-        (echo '```'; java -classpath target/gha.jar com.bjss.mjwilson.gha.Gha; echo '```') >> $GITHUB_STEP_SUMMARY
+        (echo '```'; java -classpath target/gha-${GITHUB_SHA}.jar com.bjss.mjwilson.gha.Gha; echo '```') >> $GITHUB_STEP_SUMMARY
 
     - name: Upload Test Results
       id: upload-tests
