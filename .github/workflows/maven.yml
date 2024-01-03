@@ -42,7 +42,7 @@ jobs:
       id: upload-tests
       uses: actions/upload-artifact@v4.0.0
       with:
-        name: jar
+        name: surefire
         path: target/surefire-reports
         retention-days: 1
         
