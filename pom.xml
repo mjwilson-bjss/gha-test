@@ -61,7 +61,7 @@
     </dependencies>
 
     <build>
-        <!-- <sourceDirectory>src/</sourceDirectory> -->
+        <finalName>gha</finalName>
 
         <plugins>
             <plugin>
