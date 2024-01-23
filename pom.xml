@@ -18,7 +18,7 @@
         <jacoco.version>0.8.11</jacoco.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>3.2.0</spring-boot.version>
+        <spring-boot.version>3.1.6</spring-boot.version>
         <assertj.version>3.24.2</assertj.version>
     </properties>
 
@@ -79,6 +79,9 @@
                         <version>9.0.9</version>
                         <configuration>
                             <failBuildOnCVSS>8</failBuildOnCVSS>
+                            <suppressionFiles>
+                                <suppressionFile>project-suppression.xml</suppressionFile>
+                            </suppressionFiles>
                         </configuration>
                         <executions>
                             <execution>
