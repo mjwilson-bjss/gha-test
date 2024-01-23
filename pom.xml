@@ -18,7 +18,7 @@
         <jacoco.version>0.8.11</jacoco.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>3.1.6</spring-boot.version>
+        <spring-boot.version>3.2.0</spring-boot.version>
         <assertj.version>3.24.2</assertj.version>
     </properties>
 
@@ -66,6 +66,32 @@
         </dependency>
     </dependencies>
 
+    <!-- Dependency checker is only activated when the associated
+         profile is activated, as it can be slow to run -->
+    <profiles>
+        <profile>
+            <id>dependency-check</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.owasp</groupId>
+                        <artifactId>dependency-check-maven</artifactId>
+                        <version>9.0.9</version>
+                        <configuration>
+                            <failBuildOnCVSS>8</failBuildOnCVSS>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <build>
         <finalName>${buildName}</finalName>
