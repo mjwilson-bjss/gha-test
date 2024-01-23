@@ -1,7 +1,7 @@
 name: Dependency checker
 
 on: 
-  workflow_dispatch
+  push
 
 jobs:
   build:
