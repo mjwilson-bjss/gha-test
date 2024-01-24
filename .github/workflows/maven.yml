@@ -23,7 +23,11 @@ jobs:
       id: maven
       run: mvn -B package --file pom.xml -DbuildName=gha-${GITHUB_SHA}
 
-    - name: 'Dependency Review'
+    - name: Submit Dependency Snapshot
+      uses: advanced-security/maven-dependency-submission-action@v3
+      if: github.event_name == 'pull_request'
+
+    - name: Dependency Review
       uses: actions/dependency-review-action@v4
       if: github.event_name == 'pull_request'
       with:
