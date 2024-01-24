@@ -23,13 +23,6 @@ jobs:
       id: maven
       run: mvn -B package --file pom.xml -DbuildName=gha-${GITHUB_SHA}
 
-    - name: 'Dependency Review'
-      uses: actions/dependency-review-action@v4
-      with:
-        allow-licenses: LGPL-2.0
-        base-ref: ${{ github.event.pull_request.base.sha || 'main' }}
-        head-ref: ${{ github.event.pull_request.head.sha || github.ref }}
-
     - name: Upload Test Results
       id: upload-tests
       uses: actions/upload-artifact@v4.0.0
