@@ -33,7 +33,7 @@ jobs:
       with:
         retry-on-snapshot-warnings: true
         retry-on-snapshot-warnings-timeout: 300
-        allow-licenses: LGPL-2.0
+        deny-licenses: GPL-2.0
 
     - name: Upload Test Results
       id: upload-tests
