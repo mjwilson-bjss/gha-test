@@ -25,6 +25,10 @@ jobs:
 
     - name: 'Dependency Review'
       uses: actions/dependency-review-action@v4
+      with:
+        deny-licenses: LGPL-2.0
+        base-ref: ${{ github.event.pull_request.base.sha || 'main' }}
+        head-ref: ${{ github.event.pull_request.head.sha || github.ref }}
 
     - name: Upload Test Results
       id: upload-tests
