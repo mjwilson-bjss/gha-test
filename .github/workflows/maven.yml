@@ -30,6 +30,7 @@ jobs:
       uses: actions/dependency-review-action@v4
       if: github.event_name == 'pull_request'
       with:
+        config-file: ./.github/dependency-review-config.yml
         retry-on-snapshot-warnings: true
         retry-on-snapshot-warnings-timeout: 300
         deny-licenses: GPL-2.0
