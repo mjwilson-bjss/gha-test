@@ -1,0 +1,6 @@
+deny-licenses:
+  - 'GPL-2.0'
+  - 'GPL-3.0'
+allow-ghsas:
+  - 'GHSA-vmq6-5m68-f53m'
+  - 'GHSA-r4q3-7g4q-x89m'
