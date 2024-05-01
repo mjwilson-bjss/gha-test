@@ -21,10 +21,10 @@ public class TestHelloWorldController {
 
     @Test
     public void shouldReturnHelloWorldText() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/hello")
+        mvc.perform(MockMvcRequestBuilders.get("/hello?message=test")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Spring Boot hello world controller")));
+                .andExpect(content().string(equalTo("Spring Boot hello world controller test")));
     }
 
 }
